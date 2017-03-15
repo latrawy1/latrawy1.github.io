@@ -50,29 +50,7 @@ body{
 	position:absolute;
 }
 </style>
-<script>
-window.onload=function(){
-  var picture=document.getElementById("picture");
-  picture.addEventListener("touchstart",function(e){
-    var p,f1,f2;
-    e=e.touches[0];
-    p={
-      x:picture.offsetLeft-e.clientX,
-      y:picture.offsetTop-e.clientY
-    };
-    document.addEventListener("touchmove",f2=function(e){
-      var t=t=e.touches[0];
-      picture.style.left=p.x+t.clientX+"px";
-      picture.style.top=p.y+t.clientY+"px";
-      e.preventDefault();
-    },false);
-    document.addEventListener("touchend",f1=function(e){
-      document.removeEventListener("touchend",f1);
-      document.removeEventListener("touchmove",f2);
-    },false);
-  },false);
-};
-</script>
+
 <body>
 <div class="bg">
 	<img src="img/tree.png" width="100%"/>
