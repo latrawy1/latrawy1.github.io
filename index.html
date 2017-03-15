@@ -1,1 +1,88 @@
-<h1>hello world!</h1>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN">
+<title>chenshuling</title>
+<meta name="viewport" content="user-scalable=0" />
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />  
+<style>
+* {margin:0px;padding:0px;}
+body{
+	background:url(img/timg1.gif) no-repeat;
+	position:relative;
+}
+.panel {
+  position:absolute;
+  left:0px;top:0px;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  background:rgba(0,0,0,0.1);
+}
+.picture {
+  position:absolute;
+  left:10px;top:0px;
+  height:100%;
+  width:100%;
+}
+.picture img {
+  position:absolute;
+  height: 30%;
+  left:50%;top:36%;
+  margin:-162px -175px;
+}
+.bg img{
+	margin-top: 5%;
+}
+.thing{
+	position:relative;
+	height: 100%;
+	width: 100%;
+}
+.thing1{
+	top:30%;
+	left: 50%;
+	margin:-162px -167px;
+	position:absolute;
+}
+.word{
+	top:73%;
+	width: 85%;
+	left: 50%;
+	margin:-162px -170px;
+	position:absolute;
+}
+</style>
+<script>
+window.onload=function(){
+  var picture=document.getElementById("picture");
+  picture.addEventListener("touchstart",function(e){
+    var p,f1,f2;
+    e=e.touches[0];
+    p={
+      x:picture.offsetLeft-e.clientX,
+      y:picture.offsetTop-e.clientY
+    };
+    document.addEventListener("touchmove",f2=function(e){
+      var t=t=e.touches[0];
+      picture.style.left=p.x+t.clientX+"px";
+      picture.style.top=p.y+t.clientY+"px";
+      e.preventDefault();
+    },false);
+    document.addEventListener("touchend",f1=function(e){
+      document.removeEventListener("touchend",f1);
+      document.removeEventListener("touchmove",f2);
+    },false);
+  },false);
+};
+</script>
+<body>
+<div class="bg">
+	<img src="img/tree.png" width="100%"/>
+	<img src="img/brid.png" class="thing1"/>
+	<img src="img/me.png" class="word"/>
+<div class="panel">
+  <div class="picture" id="picture">
+    <img src="img/u.png" />
+  </div>
+</div>
+</div>
+
+</body>
